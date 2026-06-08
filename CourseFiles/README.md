@@ -1,6 +1,7 @@
 # CourseFiles — Course Design Documents
 
-One `.md` file per course, produced by the [Course Design Workflow](../Course_Design_Workflow.md) and verified against the [Course Design Checklist](../Course_Design_Checklist.md).
+One `.md` file per course, produced by the [Course Design Workflow](../Course_Design_Workflow.md) and
+verified against the [Course Design Checklist](../Course_Design_Checklist.md).
 
 ---
 
@@ -8,146 +9,143 @@ One `.md` file per course, produced by the [Course Design Workflow](../Course_De
 
 ```
 CourseFiles/
-├── Foundation/       ← courses in ALL 6 programs (Sem I–II; mostly FC)
-├── AI-Programs/      ← courses shared by AIDS + AIML (± CSE) (Sem I–III)
-├── CS-Programs/      ← courses shared by CSE + CSIT + ISE + IoT (Sem I–II)
-├── AIDS/             ← AIDS-exclusive courses
-├── AIML/             ← AIML-exclusive courses
-├── CSE/              ← CSE-exclusive courses
-├── CSIT/             ← CSIT-exclusive courses
-├── ISE/              ← ISE-exclusive courses
-└── IoT/              ← IoT-exclusive courses
+├── Foundation/    ← courses common to all engineering programs (Sem I–II basics + mandated subjects)
+├── CS-Core/       ← courses common across SoCSE programs (CS fundamentals shared by 2+ programmes)
+├── AIDS/          ← AIDS-specific + AIDS+AIML shared courses (same code → one canonical file)
+├── AIML/          ← AIML-exclusive courses (AIDS+AIML shared courses are filed under AIDS/)
+├── CSE/           ← CSE-exclusive courses
+├── CSIT/          ← CSIT-exclusive courses
+├── ISE/           ← ISE-exclusive courses
+└── IoT/           ← IoT-exclusive courses
 ```
 
-**Rule:** place the course file in the *most-shared* folder that correctly describes its scope. Never duplicate a file — one course, one file.
+**Placement rule — one file per unique course code, in the most general applicable folder:**
 
 | Where it goes | Condition |
 |---|---|
-| `Foundation/` | Course code appears in all 6 program scheme docs (`Docs/*-v1.md`) |
-| `AI-Programs/` | Course appears in AIDS + AIML (and optionally CSE), but not in CSIT / ISE / IoT |
-| `CS-Programs/` | Course appears in CSE + CSIT + ISE + IoT (and optionally AIML), but not in AIDS |
-| `<PROGRAM>/` | Course appears in exactly one program |
+| `Foundation/` | Non-CS-specific: maths, sciences, engineering basics, English, ethics, constitution |
+| `CS-Core/` | CS-specific content shared by 2 or more SoCSE programmes |
+| `<PROGRAM>/` | Unique to one programme (or a small cluster; canonical copy in the primary programme folder) |
 
-When a course straddles a boundary that doesn't fit the above (e.g. AIDS + CSE only), put it in the more specific program folder and add a note in the front-matter `shared_with:` field.
+---
+
+## Current course file inventory
+
+### Foundation/ — 15 files
+
+| File | Course | Programmes | Sem |
+|---|---|---|---|
+| CF_B24AS0103_... | Multivariable Calculus and Linear Algebra | All 6 | I |
+| CF_B24AS0105_... | Chemical Technology for Computing | AIDS, AIML | I |
+| CF_B25AS0105_... | Chemical Technology for Computing | CSE, CSIT, ISE, IoT | II |
+| CF_B25EE0101_... | Electronics and Digital Logic | All 6 | I |
+| CF_B25EE0102_... | Electronics and Digital Logic Lab | All 6 | I |
+| CF_B24ED0102_... | Fundamentals and Applications of Civil Engineering | All 6 | I |
+| CF_B24EN0102_... | Finance and Management | All 6 | I |
+| CF_B24AS0203_... | Probability and Statistics | All 6 | II |
+| CF_B24AS0106_... | Physics for Computer Science | All 6 | II |
+| CF_B24AS0108_... | Physics for Computer Science Lab | All 6 | II |
+| CF_B24ME0105_... | Fundamentals of Mechanical Engineering | All 6 | II |
+| CF_B24ME0102_... | Innovation and Entrepreneurship | All 6 | II |
+| CF_B24AH0103_... | Communicative English | All 6 | II |
+| CF_B25AS0301_... | Discrete Mathematics and Graph Theory | AIDS, AIML, CSE | III |
+| CF_B25ME0301_... | Indian Constitution and Cyber Law | AIDS, AIML, CSE | III |
+
+### CS-Core/ — 14 files
+
+| File | Course | Programmes | Sem |
+|---|---|---|---|
+| CF_B24CI0109_... | Introduction to C Programming | AIDS, AIML | I |
+| CF_B24CI0110_... | Introduction to C Programming Lab | AIDS, AIML | I |
+| CF_B25CI0101_... | Introduction to C Programming | CSE, CSIT, ISE, IoT | I |
+| CF_B25CI0102_... | Introduction to C Programming Lab | CSE, CSIT, ISE, IoT | I |
+| CF_B25CS0101_... | Python for Data Science | All 6 | I |
+| CF_B25CS0102_... | Python for Data Science Lab | All 6 | I |
+| CF_B25CS0201_... | Business Analysis and Software Design | All 6 | II |
+| CF_B25CI0201_... | Advanced C Programming with Generative AI | All 6 | II |
+| CF_B24EN0101_... | Internet of Things | All 6 | II |
+| CF_B25CI0203_... | Grand Challenge (Extra Credit, Optional) | All 6 | II |
+| CF_B25CS0301_... | Data Structures and Algorithms | AIDS, AIML, CSE | III |
+| CF_B25CS0302_... | Data Base Management Systems | AIDS, AIML, CSE | III |
+| CF_B25CS0304_... | Introduction to Design Thinking | AIDS, AIML, CSE | III |
+| CF_B25CS0305_... | AEC-1 (Placement Training) | AIDS, AIML, CSE | III |
+
+### AIDS/ — 4 files (all also cover AIML — same course code)
+
+| File | Course | Programmes | Sem |
+|---|---|---|---|
+| CF_B25EA0301_... | Object Oriented Programming with Python | AIDS, AIML | III |
+| CF_B25EA0302_... | Principles of Artificial Intelligence | AIDS, AIML | III |
+| CF_B25EA0303_... | Portfolio Development | AIDS, AIML | III |
+| CF_B25EA0304_... | Application Development-1: Web Design | AIDS, AIML | III |
+
+> **AIML note:** The 4 AIDS+AIML shared courses (B25EA030x) are filed here because both programmes share the same course code. AIML-exclusive courses (if any) belong in `AIML/`.
+
+### CSE/ — 8 files
+
+| File | Course | Sem |
+|---|---|---|
+| CF_B25CS0303_... | Computer Organization and Architecture | III |
+| CF_B25EF0301_... | Object Oriented Programming using Java | III |
+| CF_B25EF0302_... | Portfolio Building | III |
+| CF_B25EF0303_... | Application Development-1: Web Application Development | III |
+| CF_B24CI0309_... | Introduction to Design Thinking | VIII |
+| CF_B24CS0301_... | Professional Ethics | VIII |
+| CF_B24EE0310_... | Universal Human Values | VIII |
+| CF_B24ED0501_... | Indian Knowledge Systems | VIII |
+
+### AIML/, CSIT/, ISE/, IoT/ — empty (no programme-exclusive coded courses in scheme docs yet)
+
+Semesters IV–VIII for these programmes have not yet been assigned course codes in the 2026 scheme.
+Add files here as those courses are designed.
 
 ---
 
 ## File naming
 
 ```
-CF_<CourseCode>_<ShortTitle>.md
+CF_<CourseCode>_<ShortCamelCaseTitle>.md
 ```
 
-Examples:
-- `CF_B24AH0103_CommunicativeEnglish.md`
-- `CF_B25CS0301_DataStructuresAlgorithms.md`
-- `CF_B25EA0302_PrinciplesOfAI.md`
-
-If the course code has not yet been assigned (common in Sem IV–VIII while the 2026 scheme is being finalised), use:
+If no course code has been assigned yet (common in Sem IV–VIII):
 
 ```
-CF_Sem<Roman>_<ShortTitle>.md
+CF_Sem<Roman>_<ShortCamelCaseTitle>.md
 ```
 
-Example: `CF_SemV_NaturalLanguageProcessing.md`
-
-Update the name once the official code is assigned.
+Update the filename once the official code is assigned.
 
 ---
 
-## Program → course file index
+## YAML front-matter (every course file)
 
-Use this to find all course files relevant to a given program.
-
-### AI & Data Science (AIDS)
-| Folder | What to find there |
-|---|---|
-| `Foundation/` | All 17 Sem I–II foundation courses |
-| `AI-Programs/` | AIDS+AIML shared courses (Sem I–III) |
-| `AIDS/` | AIDS-exclusive courses (Sem III–VIII) |
-
-### AI & Machine Learning (AIML)
-| Folder | What to find there |
-|---|---|
-| `Foundation/` | All 17 Sem I–II foundation courses |
-| `AI-Programs/` | AIDS+AIML shared courses (Sem I–III) |
-| `AIML/` | AIML-exclusive courses (Sem III–VIII) |
-
-### Computer Science & Engineering (CSE)
-| Folder | What to find there |
-|---|---|
-| `Foundation/` | All 17 Sem I–II foundation courses |
-| `CS-Programs/` | CSE+CSIT+ISE+IoT shared courses (Sem I–II) |
-| `AI-Programs/` | CSE also shares some Sem III courses with AIDS+AIML (see codes B25AS0301, B25CS0301, B25CS0302, B25CS0304, B25CS0305, B25ME0301) |
-| `CSE/` | CSE-exclusive courses (Sem III–VIII) |
-
-### Computer Science & Information Technology / Cyber Security (CSIT)
-| Folder | What to find there |
-|---|---|
-| `Foundation/` | All 17 Sem I–II foundation courses |
-| `CS-Programs/` | CSE+CSIT+ISE+IoT shared courses (Sem I–II) |
-| `CSIT/` | CSIT-exclusive courses (Sem III–VIII) |
-
-### Information Science & Engineering (ISE)
-| Folder | What to find there |
-|---|---|
-| `Foundation/` | All 17 Sem I–II foundation courses |
-| `CS-Programs/` | CSE+CSIT+ISE+IoT shared courses (Sem I–II) |
-| `ISE/` | ISE-exclusive courses (Sem III–VIII) |
-
-### Internet of Things & Cyber Security (IoT)
-| Folder | What to find there |
-|---|---|
-| `Foundation/` | All 17 Sem I–II foundation courses |
-| `CS-Programs/` | CSE+CSIT+ISE+IoT shared courses (Sem I–II) |
-| `IoT/` | IoT-exclusive courses (Sem III–VIII) |
-
----
-
-## Course file front-matter (YAML header)
-
-Every course file should begin with this block so automated tools can query it without parsing the prose:
+Every file begins with a YAML block pre-filled from the scheme of instruction:
 
 ```yaml
 ---
 course_code: "B25CS0301"
 title: "Data Structures and Algorithms"
-programs: [AIDS, AIML, CSE]        # all programs this file serves
+programs: [AIDS, AIML, CSE]
 semester: III
-category: HC                        # HC / FC / SC / OE / MC / ETC / AEC / W
-ltpc: "2-0-1-3"
+category: HC
+ltpc: "1-1-1-3"
+contact_hours_per_week: 5
 cie: 50
 see: 50
-level: "A+Adv"                      # A / Adv / A+Adv / — (from Curriculum_Visual_Map.md)
-faculty: ""
-ay: ""
+total_marks: 100
+aicte_category: PCC
+level: "TBD — verify in Curriculum_Visual_Map.md"
+status: skeleton        # → change to "designed" after course design, "verified" after checklist pass
 ---
 ```
 
 ---
 
-## Course counts (from 2026 scheme docs, Sem I–III)
+## How to complete a skeleton file
 
-| Folder | Coded courses now | Expected final |
-|---|---|---|
-| `Foundation/` | 17 | ~17 (Sem I–II complete) |
-| `AI-Programs/` | 13 | ~25–35 (Sem I–VI) |
-| `CS-Programs/` | 3 | ~15–25 (Sem I–VI) |
-| `AIDS/` | 0 | ~15–20 |
-| `AIML/` | 0 | ~15–20 |
-| `CSE/` | 8 | ~15–20 |
-| `CSIT/` | 0 | ~15–20 |
-| `ISE/` | 0 | ~15–20 |
-| `IoT/` | 0 | ~15–20 |
-
-> **Note:** Semesters IV–VIII of the 2026 scheme are partially coded. Course files for those semesters should be created as courses are designed, using `CF_Sem<Roman>_<ShortTitle>.md` until official codes are assigned.
-
----
-
-## How to create a new course file
-
-1. Identify the program(s) this course serves → choose the right folder (table above).
-2. Use the **`reva-course-designer`** skill in Claude Code, or follow the [Course Design Workflow](../Course_Design_Workflow.md).
-3. Name the file `CF_<CourseCode>_<ShortTitle>.md` and add the YAML front-matter.
-4. After the faculty review, run the **`reva-course-reviewer`** skill to verify against the checklist.
-5. Commit and open a PR.
+1. Open the file in Claude Code — the **`reva-course-designer`** skill triggers automatically.
+2. Confirm programme, L-T-P-C, and dual-level (A/Adv/A+Adv) from `Docs/<PROGRAM>-v1.md` and `Curriculum_Visual_Map.md`.
+3. Fill in §1–§13 and §14 awareness/advanced split via the workflow (Path A or Path B).
+4. After faculty review, run **`reva-course-reviewer`** to verify against the checklist.
+5. Change `status:` in the front-matter from `skeleton` → `designed` → `verified`.
+6. Commit and open a PR.
